@@ -10,6 +10,9 @@ void loop() {
 		line = read_line();
 		args = parse(line);
 		status = execute(args);
+
+		free(line);
+		free(args);
 	} while (status);
 }
 int main() {
