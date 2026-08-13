@@ -3,9 +3,26 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <sys/wait.h> 
 #define TOKEN 64
 #define DELI " \t\a\r\n"
 
+
+int launch(char** input) {
+	int pid = 0, wpid = 0;
+	int status;
+	pid = fork();
+	if (pid == 0) {
+		if (execvp(input[0], input));
+	}
+	else if (pid < 0) {
+		perror("no");
+	}
+	else {
+		wpid = waitpid(pid , &status , WUNTRACED)
+
+	}
+}
 char* parse(char * line){
 	int position = 0;
 	int buffersize = TOKEN;
