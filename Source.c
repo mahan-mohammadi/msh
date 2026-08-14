@@ -1,6 +1,8 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
+#include <unistd.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
 #include <sys/wait.h> 
@@ -19,11 +21,11 @@ int launch(char** input) {
 		perror("no");
 	}
 	else {
-		wpid = waitpid(pid , &status , WUNTRACED)
+		wpid = waitpid(pid , &status , WUNTRACED);
 
 	}
 }
-char* parse(char * line){
+char** parse(char * line){
 	int position = 0;
 	int buffersize = TOKEN;
 	char** tokens = malloc(buffersize * sizeof(char*));
